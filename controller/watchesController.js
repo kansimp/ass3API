@@ -3,7 +3,7 @@ const _Watches = require('../models/Watches');
 
 const getAll = async (req, res) => {
     try {
-        const listWatches = await _Watches.find({}, 'watchName image').populate({ path: 'brand', select: 'brandName' });
+        const listWatches = await _Watches.find({}).populate({ path: 'brand', select: 'brandName' });
         if (listWatches) {
             return res.status(200).json({
                 message: 'get list watches success',
